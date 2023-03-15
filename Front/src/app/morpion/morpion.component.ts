@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Position } from '../position.class';
 import { Morpion } from './morpion.class';
 
 @Component({
@@ -9,12 +10,13 @@ import { Morpion } from './morpion.class';
 export class MorpionComponent {
   morpion:Morpion;
 
+
   constructor(){
     this.morpion = new Morpion(3);
   }
 
-  clickCaseHandler(){
-    
+  clickCaseHandler(x:number,y:number){
+    this.morpion.play(new Position(x,y),"X");
   }
 
 }

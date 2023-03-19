@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Position } from '../position.class';
 import { Morpion } from './morpion.class';
 import { GameManagerService } from '../game-manager.service';
-
+import { MorpionSocketService } from '../morpion-socket.service';
 @Component({
   selector: 'app-morpion',
   templateUrl: './morpion.component.html',
@@ -13,14 +13,15 @@ export class MorpionComponent {
 
 
 
-  constructor(private gameManager:GameManagerService){
+  constructor(private gameManager:GameManagerService,
+    private morpionSocket : MorpionSocketService){
     this.morpion = new Morpion(3);
+    this.morpionSocket.onPlay();
   }
 
   clickCaseHandler(x:number,y:number){
-    this.morpion.play(new Position(x,y),"X");
     this.gameManager.increase();
-
+    
   }
 
 }

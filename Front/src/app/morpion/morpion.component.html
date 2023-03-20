@@ -1,7 +1,15 @@
 <p>morpion works!</p>
 
-<div id = "morpion" class = "container">
-    <div *ngFor="let line of morpion.grid; let i = index" class = "row">
+<div *ngFor="let line of morpion.grid; let i = index" class = "row">
+    <div *ngFor="let case of line; let j = index" (click)="clickCaseHandler(i,j)" class = "col case d-flex justify-content-center">
+        {{case}}
+    </div>
+</div>
+
+{{morpion$ | async}}
+
+<div id = "morpion" class = "container" *ngIf="(morpion$ | async) as morpion">
+    <div *ngFor="let line of morpion; let i = index" class = "row">
         <div *ngFor="let case of line; let j = index" (click)="clickCaseHandler(i,j)" class = "col case d-flex justify-content-center">
             {{case}}
         </div>

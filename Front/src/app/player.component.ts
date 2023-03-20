@@ -7,5 +7,7 @@ export class Player{
         this.side = side;
     }
 
+    
+
 
 }

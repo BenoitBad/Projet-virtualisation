@@ -1,2 +1,2 @@
-<app-player-registration></app-player-registration>
-<app-morpion></app-morpion>
+<app-player-registration  [player]="player"></app-player-registration>
+<app-morpion *ngIf="gameState === GameState.Start" [player]="player"></app-morpion>

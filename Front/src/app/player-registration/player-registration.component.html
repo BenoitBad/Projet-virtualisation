@@ -1,12 +1,9 @@
 <div class ="container">
     <div class = "form">
         <div class = "col"><label class = "form-label"> Pseudo </label> </div> <div class = "col"><input type = "text" class = "form-label" [(ngModel)]="player.name"></div>
-        <div class = "col-group">
-            <h1>Select your side</h1>
-            <button type = "button" class = "btn btn-outline-dark">X</button>
-            <button type = "button" class = "btn btn-outline-dark">O</button>
+        <div class = "col-group group-btn"  *ngFor="let side of sides">
+            <input type = "radio" [(ngModel)] = "player.side" [value] = side>
         </div>
-        
         <button type = "submit" class = "btn btn-primary btn-lg btn-block">Jouer</button>
     </div>
 </div>

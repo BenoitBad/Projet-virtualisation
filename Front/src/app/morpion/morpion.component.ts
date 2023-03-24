@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { Position } from '../position.class';
 import { Morpion } from './morpion.class';
 import { Socket } from 'ngx-socket-io';
 import { GameManagerService } from '../game-manager.service';
 import { MorpionSocketService } from '../morpion-socket.service';
 import { Observable,startWith ,defaultIfEmpty} from 'rxjs';
+import { Input } from '@angular/core';
+import { Player } from '../player.component';
 @Component({
   selector: 'app-morpion',
   templateUrl: './morpion.component.html',
@@ -13,6 +15,7 @@ import { Observable,startWith ,defaultIfEmpty} from 'rxjs';
 export class MorpionComponent {
   morpion$:Observable<string[][]>;
   morpion : Morpion;
+  @Input() player! : Player;
 
 
   constructor(private gameManager:GameManagerService,

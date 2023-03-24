@@ -7,7 +7,6 @@ import { Observable,startWith } from 'rxjs';
   providedIn: 'root'
 })
 export class MorpionSocketService {
-  socketUrl = 'http://127.0.0.1:5000';
 
   constructor(private socket: Socket) {
     this.socket.on('connect', () => {

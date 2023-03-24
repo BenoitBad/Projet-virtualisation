@@ -7,6 +7,10 @@ export class Player{
         this.side = side;
     }
 
+    toJson(){
+        return JSON.stringify(this);
+    }
+
     
 
 

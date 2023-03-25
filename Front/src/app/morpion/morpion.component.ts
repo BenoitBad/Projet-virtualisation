@@ -25,7 +25,7 @@ export class MorpionComponent {
 
     this.morpion$ = this.morpionSocket.getMorpion();
     this.morpion = new Morpion(3);
-    this.morpion$.subscribe((morpion) => this.morpion.grid = morpion)
+    this.morpionSocket.initMorpion();
   
   }
 
@@ -34,8 +34,9 @@ export class MorpionComponent {
   }
 
   clickCaseHandler(x:number,y:number){
+    if (!this.player.canPlay()) return;
     this.gameManager.increase();
-    this.morpionSocket.emitPlay(x,y);
+    this.morpionSocket.emitPlay(x,y,this.player);
     
   }
 

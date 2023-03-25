@@ -1,2 +1,6 @@
-<app-player-registration  [player]="player"></app-player-registration>
+<button *ngIf="gameState === GameState.Initiation" class = "btn btn-primary" (click) = 'clickJoinHandler()'>Rejoindre une partie</button>
+<app-player-registration  (playButtonEvent)="clickPlayHandler($event)" *ngIf="gameState === GameState.Registration" [player]="player"></app-player-registration>
+<div *ngIf = "gameState === GameState.Connecting"> Connecting ...</div>
+<div *ngIf = "gameState === GameState.Full"> The room is full ! Please wait the game is finished !</div>
+<div *ngIf = "gameState === GameState.Waiting"> Waiting for your opponent ..</div>
 <app-morpion *ngIf="gameState === GameState.Start" [player]="player"></app-morpion>

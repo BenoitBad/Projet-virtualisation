@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - image: benoitbad/projet-virtualisation-frontend:2
+          imagePullPolicy: IfNotPresent
+          name: frontend
+      restartPolicy: Always

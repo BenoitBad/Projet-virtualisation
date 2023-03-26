@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: frontend
+  name: frontend
+spec:
+  ports:
+    - nodePort:
+      port: 4200
+      protocol: TCP
+      targetPort: 4200
+  selector:
+    app: frontend
+  type: LoadBalancer

@@ -1,0 +1,9 @@
+<div class ="container">
+    <div class = "form">
+        <div class = "col"><label class = "form-label"> Pseudo </label> </div> <div class = "col"><input type = "text" class = "form-label" [(ngModel)]="player.name"></div>
+        <div class = "col-group group-btn"  *ngFor="let side of sides">
+            <input type = "radio" [(ngModel)] = "player.side" [value] = side>{{side}}
+        </div>
+        <button type = "button" (click)="clickPlayHandler()" class = "btn btn-primary btn-lg btn-block">Jouer</button>
+    </div>
+</div>

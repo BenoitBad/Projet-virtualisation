@@ -1,12 +1,11 @@
-<p>morpion works!</p>
+<p>Your turn {{player.name}}</p>
+<p>You are playing {{player.side}} against </p>
 
-<div id = "morpion" class = "container">
 
-    <table class = "table">
-
-        <tr><td class = "border">&nbsp;</td><td class = "border">&nbsp;</td><td class = "border">&nbsp;</td></tr>
-        <tr><td class = "border">&nbsp;</td><td class = "border">&nbsp;</td><td class = "border">&nbsp;</td></tr>
-        <tr><td class = "border">&nbsp;</td><td class = "border">&nbsp;</td><td class = "border">&nbsp;</td></tr>
-    </table>
-    
+<div id = "morpion" class = "container" *ngIf="(morpion$ | async) as morpion">
+    <div *ngFor="let line of morpion; let i = index" class = "row">
+        <div *ngFor="let case of line; let j = index" (click)="clickCaseHandler(i,j)" class = "col case d-flex justify-content-center">
+            {{case}}
+        </div>
+    </div>
 </div>

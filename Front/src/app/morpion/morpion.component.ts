@@ -16,6 +16,7 @@ export class MorpionComponent {
   morpion$:Observable<string[][]>;
   morpion : Morpion;
   @Input() player! : Player;
+  @Input() opponent! : Player;
 
 
   constructor(private gameManager:GameManagerService,

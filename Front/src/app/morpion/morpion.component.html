@@ -1,5 +1,8 @@
-<p>Your turn {{player.name}}</p>
-<p>You are playing {{player.side}} against </p>
+
+    <p *ngIf = "player.canPlay();">Your turn {{player.name}}</p>
+    <p *ngIf = "!player.canPlay()" >Your opponent turn</p>
+    <p >You are playing {{player.side}} against {{opponent.name}}</p>
+
 
 
 <div id = "morpion" class = "container" *ngIf="(morpion$ | async) as morpion">

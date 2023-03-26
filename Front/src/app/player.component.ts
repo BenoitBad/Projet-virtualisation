@@ -14,6 +14,10 @@ export class Player{
         this.id = id;
     }
 
+    getId(){
+        return this.id;
+    }
+
     setPlay(newState:boolean){
         this.play = newState;
     }
@@ -24,6 +28,11 @@ export class Player{
 
     toJson(){
         return JSON.stringify(this);
+    }
+
+    static jsonToPlayer(json : string){
+        let player : Player = JSON.parse(json);
+        return new Player(player.name,player.side);
     }
 
     

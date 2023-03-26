@@ -16,6 +16,8 @@ export class AppComponent{
   gameState$! : Observable<GameState>;
   readonly GameState = GameState;
   playerId$ !: Observable<number>;
+  opponent$! : Observable<string>;
+  opponent ! : Player;
 
 
   constructor(private morpionSocket : MorpionSocketService){
@@ -23,6 +25,12 @@ export class AppComponent{
     this.gameState = GameState.Initiation;
     this.gameState$ = this.morpionSocket.getGameState();
     this.gameState$.subscribe((data) => this.gameState = data);
+
+    this.opponent = new Player("","");
+    this.opponent$ = this.morpionSocket.getOpponent();
+    this.opponent$.subscribe((player) =>{
+       this.opponent = Player.jsonToPlayer(player);
+    });
   }
 
   clickJoinHandler(){

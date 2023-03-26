@@ -3,4 +3,7 @@
 <div *ngIf = "gameState === GameState.Connecting"> Connecting ...</div>
 <div *ngIf = "gameState === GameState.Full"> The room is full ! Please wait the game is finished !</div>
 <div *ngIf = "gameState === GameState.Waiting"> Waiting for your opponent ..</div>
-<app-morpion *ngIf="gameState === GameState.Start" [player]="player"></app-morpion>
+<div *ngIf = "gameState === GameState.Win"> Congratulations you won !</div>
+<div *ngIf = "gameState === GameState.Draw"> It's a draw !</div>
+<div *ngIf = "gameState === GameState.Lose"> You lose !</div>
+<app-morpion *ngIf="gameState === GameState.Start" [player]="player" [opponent]="opponent"></app-morpion>

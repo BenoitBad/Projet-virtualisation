@@ -34,6 +34,10 @@ export class MorpionSocketService {
     return this.socket.fromEvent<number>('playerTurn');
   }
 
+  getOpponent(){
+    return this.socket.fromEvent<string>('opponent');
+  }
+
   initMorpion(){
     this.socket.emit("getMorpionGrid");
   }
@@ -46,7 +50,13 @@ export class MorpionSocketService {
     this.socket.emit('play',{
       "player": player,
       "x" : x,
-      "y" : y
+      "y" : y,
+      "playerId": player.getId(),
     });
   }
+
+  emitOpponent(){
+    this.socket.emit("getOpponent");
+  }
+
 }

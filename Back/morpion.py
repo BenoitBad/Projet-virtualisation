@@ -8,13 +8,17 @@ class Morpion:
         self.currentPlaying = -1
         
     def play(self,x,y,symbole):
-        
+        print(symbole)
+
         if self.grid[x][y] == 'X' or self.grid[x][y] == 'O':
-            return
+            print("Position already taken")
+            return False
         if x > len(self.grid[0]) or x < 0 or y > len(self.grid[0] or y < 0):
-            return
+            print("Position not legal")
+            return False
 
         self.grid[x][y] = symbole
+        return True
     
     def totalPlayer(self):
         return len(self.players)
@@ -26,15 +30,18 @@ class Morpion:
         self.players.append(player)
         return True
     
-    def checkWin(self,playerNumber):
-        #player = self.players[playerNumber]
-        player = Player("","X")
-        if self.checkDiagonalWin(player.side):
+    def getPlayer(self,playerId):
+        if playerId > len(self.players):
+            return None
+        return self.players[playerId]
+    
+    def checkWin(self,playerSide):
+        if self.checkDiagonalWin(playerSide):
             return True
         for i in range(3):
-            if self.checkVerticalWin(player.side,i):
+            if self.checkVerticalWin(playerSide,i):
                 return True
-            if self.checkHorizontalWin(player.side,i):
+            if self.checkHorizontalWin(playerSide,i):
                 return True
         return False
     
@@ -54,10 +61,13 @@ class Morpion:
         if all(side == playedCase for playedCase in self.grid[lineIndex]):
             return True
         return False
-
+    
+    def checkDraw(self):
+        return all(all(case != '' for case in line) == True for  line in self.grid)
     
     def reset(self):
         self.grid = [["" for j in range(3)] for i in range(3)] 
+        self.players.clear()
         return True
     
     def getGrid(self):

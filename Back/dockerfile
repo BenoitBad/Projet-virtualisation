@@ -10,6 +10,7 @@ COPY app.py ./
 COPY morpion.py ./
 COPY player.py ./
 COPY gameState.py ./
+COPY client.py ./
 
 # Installer les dépendances
 RUN pip install --no-cache-dir -r requirements.txt

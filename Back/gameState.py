@@ -7,3 +7,6 @@ class GameState:
     Pause = 5
     End = 6,
     Waiting = 7
+    Lose = 8
+    Win = 9,
+    Draw = 10

@@ -1,0 +1,17 @@
+version: '1'
+services:
+  backend:
+    build:
+      context: /Back
+      dockerfile: Dockerfile
+    ports:
+      - "50000:5000"
+      - "42000:4200"
+  frontend:
+    build:
+      context: /Front
+      dockerfile: Dockerfile
+    ports:
+      - "7000:7000"
+    depends_on:
+      - backend

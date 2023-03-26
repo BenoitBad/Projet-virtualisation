@@ -16,8 +16,8 @@ RUN npm install
 # Compiler l'application Angular
 RUN npm run build
 
-# Exposer le port 4200
-EXPOSE 5000
+# Exposer le port 7000
+EXPOSE 7000
 
 # Démarrer l'application Angular
 CMD ["npm", "start"]

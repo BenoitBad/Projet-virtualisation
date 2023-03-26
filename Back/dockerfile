@@ -1,5 +1,5 @@
 # Utiliser une image de base Python 3
-FROM python:3
+FROM python:3.9-slim-buster
 
 # Définir le répertoire de travail
 WORKDIR /app
@@ -9,6 +9,7 @@ COPY requirements.txt ./
 COPY app.py ./
 COPY morpion.py ./
 COPY player.py ./
+COPY gameState.py ./
 
 # Installer les dépendances
 RUN pip install --no-cache-dir -r requirements.txt

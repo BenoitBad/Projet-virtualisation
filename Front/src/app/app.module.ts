@@ -8,7 +8,7 @@ import { MorpionComponent } from './morpion/morpion.component';
 import { PlayerRegistrationComponent } from './player-registration/player-registration.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 
-const config: SocketIoConfig = { url: 'http://localhost:5000', options: {} };
+const config: SocketIoConfig = { url: 'http://localhost:50000', options: {} };
 
 @NgModule({
   declarations: [

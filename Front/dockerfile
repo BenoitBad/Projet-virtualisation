@@ -1,0 +1,23 @@
+# Utiliser une image de base Node
+FROM node:latest
+
+# Définir le répertoire de travail
+WORKDIR /app
+
+# Copier les fichiers de l'application
+COPY package*.json ./
+COPY angular.json ./
+COPY tsconfig.json ./
+COPY src ./src
+
+# Installer les dépendances
+RUN npm install
+
+# Compiler l'application Angular
+RUN npm run build
+
+# Exposer le port 4200
+EXPOSE 5000
+
+# Démarrer l'application Angular
+CMD ["npm", "start"]

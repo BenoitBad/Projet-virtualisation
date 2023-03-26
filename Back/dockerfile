@@ -1,0 +1,21 @@
+# Utiliser une image de base Python 3
+FROM python:3
+
+# Définir le répertoire de travail
+WORKDIR /app
+
+# Copier les fichiers de l'application
+COPY requirements.txt ./
+COPY app.py ./
+COPY morpion.py ./
+COPY player.py ./
+
+# Installer les dépendances
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Exposer le port 5000 et 4200
+EXPOSE 5000
+EXPOSE 4200
+
+# Démarrer l'application Flask
+CMD ["python", "./app.py"]

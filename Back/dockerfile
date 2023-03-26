@@ -19,4 +19,4 @@ EXPOSE 5000
 EXPOSE 4200
 
 # Démarrer l'application Flask
-CMD ["python", "./app.py"]
+CMD ["flask", "run"]

@@ -33,6 +33,7 @@ def register(json):
         return 
     
     morpion.currentPlaying = randint(0,1)
+    socketio.emit('opponent',GameState.Start)
     socketio.emit('gameState',GameState.Start)
     socketio.emit('playerTurn',morpion.currentPlaying)
     return '',200
@@ -40,10 +41,10 @@ def register(json):
 @socketio.on('play')
 def onPlay(json):
     x,y,player = json["x"], json["y"], Player.fromJson(json["player"])
-    morpion.play(x,y,player.side)
-    print(morpion.checkWin(0))
+    legalPosition = morpion.play(x,y,player.side)
+    if (not legalPosition):
+        return
     morpion.currentPlaying = (morpion.currentPlaying + 1)%2
-    print(morpion.currentPlaying)
     socketio.emit('playerTurn',morpion.currentPlaying)
     socketio.emit('updateMorpion',morpion.getGrid())
     print(morpion.getGrid())

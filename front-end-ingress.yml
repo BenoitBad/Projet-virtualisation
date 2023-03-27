@@ -3,7 +3,8 @@ kind: Ingress
 metadata:
   name: frontend-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/proxy-additional-mime-types: "application/javascript;text/javascript"
+    nginx.ingress.kubernetes.io/proxy-set-header: "Content-Type: application/javascript"
 spec:
   rules:
     - host: morpion.info

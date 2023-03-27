@@ -13,7 +13,7 @@ spec:
         app: backend
     spec:
       containers:
-        - image: benoitbad/projet-virtualisation-backend:2
+        - image: benoitbad/projet-virtualisation-backend:latest
           imagePullPolicy: IfNotPresent
           name: backend
       restartPolicy: Always

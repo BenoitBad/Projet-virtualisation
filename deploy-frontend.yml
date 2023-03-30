@@ -13,7 +13,7 @@ spec:
         app: frontend
     spec:
       containers:
-        - image: benoitbad/projet-virtualisation-frontend:4
+        - image: benoitbad/projet-virtualisation-frontend:7
           imagePullPolicy: IfNotPresent
           name: frontend
       restartPolicy: Always
